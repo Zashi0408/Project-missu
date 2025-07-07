@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url('images/web-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+  margin: 0;
+}
+nav {
+  background-color: rgba(35, 35, 35, 0.4);
+  color: #FDF6F0;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+nav a {
+  color: #FDF6F0;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #FF8882; /* accent coral */
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;  /* atau space-between / flex-end */
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2rem; /* jarak antar item */
+}
+
+.nav-link li a{
+   text-decoration: none;
+  color: #FDF6F0;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: 0.3s;
+  
+}
+
+.pesan{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.isi-pesan{
+    height: 20vh;
+    width: 50%;
+    background-color: rgb(167, 82, 22);
+    text-align: justify;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.isi-pesan p{
+    width: 75%;
+    padding: 20px;
+    padding-left: 80px;
+}
+
+.akhir{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.pesan-akhir{
+    height: 20vh;
+    width: 50%;
+    background-color: rgb(167, 82, 22);
+    text-align: justify;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pesan-akhir p{
+    width: 75%;
+    padding: 20px;
+    padding-left: 80px;
+}
+
+.fotbar img{
+  width:33%;
+  height: 90%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.preview{
+  background-color: rgb(167, 82, 22);
+  width: 60%;
+  min-height: 200px; /* ✅ lebih aman di layar kecil */
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+.link-foto{
+  background-color: #FF8882;
+  width: 30%;
+  height: 30px;
+  display: flex;
+  margin: 20px auto;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.button{
+  text-decoration: none;
+  color:#FDF6F0;
+
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .isi-pesan,
+  .pesan-akhir,
+  .preview {
+    width: 90%;
+    height: auto;
+  }
+
+  .isi-pesan p,
+  .pesan-akhir p {
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .fotbar img {
+    width: 100%;
+    height: auto;
+  }
+
+  .link-foto {
+    width: 70%;
+    height: auto;
+    padding: 10px;
+  }
+
+  nav {
+    text-align: center;
+  }
+}
+
+.audio-control {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.audio-control button {
+  background-color: #FF8882;
+  border: none;
+  color: #FDF6F0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.audio-control button:hover {
+  background-color: #fcb2ad;
+}
+
