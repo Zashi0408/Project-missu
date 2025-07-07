@@ -47,10 +47,17 @@
 
     </section>
      
-     <div class="audio-control">
-      <button onclick="toggleAudio()">🎵 Play / Pause Lagu</button>
-     </div>
-    <audio id="lagu" src="https://youtu.be/8sxTCVMsGwU?si=6Zo2TCixKfX4RvfH"></audio>
+ <!-- Audio Section -->
+<div class="audio-player">
+  <audio id="lagu" src="project_lover/songs/Song1.mp3"></audio>
+  <div class="controls">
+    <button id="play-btn">▶</button>
+    <span id="current-time">0:00</span>
+    <input type="range" id="progress" value="0" step="1">
+    <span id="duration">0:00</span>
+  </div>
+</div>
+
 
 
     <section class="#akhir" id="akhir">
@@ -58,5 +65,58 @@
             <p>nah udah liat? bagus kan website yang aku bikin? hehe, cuma segini sih aku bisanya. nanti kubikinin yang bagusan lagi</p>
         </div>
     </section>
+
+      <!-- SCRIPT JS -->
+  <script>
+
+  const audio = document.getElementById('lagu');
+  const playBtn = document.getElementById('play-btn');
+  const progress = document.getElementById('progress');
+  const currentTimeEl = document.getElementById('current-time');
+  const durationEl = document.getElementById('duration');
+
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  }
+
+  // Play/Pause toggle
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.textContent = '⏸️';
+    } else {
+      audio.pause();
+      playBtn.textContent = '▶️';
+    }
+  });
+
+  // Update progress bar & time
+  audio.addEventListener('timeupdate', () => {
+    progress.value = audio.currentTime;
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  // Load duration
+  audio.addEventListener('loadedmetadata', () => {
+    progress.max = audio.duration;
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  // Seek audio
+  progress.addEventListener('input', () => {
+    audio.currentTime = progress.value;
+  });
+
+  // Reset button after end
+  audio.addEventListener('ended', () => {
+    playBtn.textContent = '▶️';
+    progress.value = 0;
+    currentTimeEl.textContent = '0:00';
+  });
+
+
+  </script>
 </body>
 </html>
